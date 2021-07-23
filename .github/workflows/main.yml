@@ -26,6 +26,6 @@ jobs:
           git stash
           git checkout -b pages
           git stash pop
-          ls -la
-          git commit -am "Automated deploy"
+          git add .
+          git commit -m "Automated deploy"
           git push origin pages --force
