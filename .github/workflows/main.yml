@@ -9,6 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Setup files
         run: |
           npm i
@@ -18,9 +19,10 @@ jobs:
           cp -R ../public/* ./
 
       # Runs a set of commands using the runners shell
-      - uses: actions/checkout@v2
       - name: Push to pages repo
         run: |
+          git config --global user.name 'Hydreath'
+          git config --global user.email 'palf1997@gmail.com'
           git stash
           git checkout -b pages
           git commit -am "Automated deploy"
