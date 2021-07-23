@@ -25,5 +25,6 @@ jobs:
           git config --global user.email 'palf1997@gmail.com'
           git stash
           git checkout -b pages
+          git stash pop
           git commit -am "Automated deploy"
           git push --force
