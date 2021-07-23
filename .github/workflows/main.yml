@@ -30,7 +30,7 @@ jobs:
         run: |
           npm i
           npm run build
-          cp -R ./public/* ../
+          cp -R ./public ../
           rm -rf ./*
           cp -R ../public/* ./
 
