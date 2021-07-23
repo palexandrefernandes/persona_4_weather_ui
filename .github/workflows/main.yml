@@ -27,4 +27,4 @@ jobs:
           git checkout -b pages
           git stash pop
           git commit -am "Automated deploy"
-          git push --force
+          git push origin pages --force
