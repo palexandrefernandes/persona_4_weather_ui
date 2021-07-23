@@ -15,6 +15,7 @@ jobs:
           npm i
           npm run build
           cp -R ./public ../
+          rm -rf ./*
           rm -rf ./.*
           cp -R ../public/* ./
 
