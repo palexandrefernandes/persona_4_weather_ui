@@ -1,18 +1,18 @@
 <script>
     import { convertWeekDayToString } from '../../utils/dates';
-    import WeatherItem from './WeatherItem.svelte';
-    import MonthYear from './MonthYear.svelte';
+    import CalendarDay from './CalendarDay.svelte';
+    import CalendarMonthYear from './CalendarMonthYear.svelte';
     export let selected = false;
     export let date = new Date();
 </script>
 
 <div class="weather-strip" class:weather-strip-selected={selected}>
-    <WeatherItem
+    <CalendarDay
         day={date.getDate()}
         dayOfTheWeek={convertWeekDayToString(date.getDay())}
     />
     {#if selected}
-        <MonthYear
+        <CalendarMonthYear
             month={date.getMonth() + 1}
             year={date.getFullYear()}
         />

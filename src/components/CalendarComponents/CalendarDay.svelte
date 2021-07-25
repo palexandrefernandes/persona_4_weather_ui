@@ -17,6 +17,7 @@
 </div>
 
 <style>
+    /*
     .sunday {
         color: #836066 !important;
     }
@@ -24,6 +25,7 @@
     .saturday {
         color: #4f616f !important;
     }
+    */
 
     .icon-container {
         display: flex;

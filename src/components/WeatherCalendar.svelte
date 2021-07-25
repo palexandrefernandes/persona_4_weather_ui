@@ -1,13 +1,16 @@
 <script>
-    import WeatherStrip from './WeatherComponents/WeatherStrip.svelte';
+    import CalendarStrip from './CalendarComponents/CalendarStrip.svelte';
     import { createDateList } from '../utils/dates';
     const SELECTED_INDEX = 1;
-    const dates = createDateList(1, 5);
+    const DAYS_BEFORE_TODAY = 1;
+    const DAYS_AFTER_TODAY = 5;
+
+    const dates = createDateList(DAYS_BEFORE_TODAY, DAYS_AFTER_TODAY);
 </script>
 
 <div id="container">
     {#each dates as date, i}
-        <WeatherStrip selected={i == SELECTED_INDEX} date={date} />
+        <CalendarStrip selected={i == SELECTED_INDEX} date={date} />
     {/each}
 </div>
 
