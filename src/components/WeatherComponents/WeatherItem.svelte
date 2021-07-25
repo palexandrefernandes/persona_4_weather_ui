@@ -1,5 +1,6 @@
 <script>
-    export let dayOfTheWeek = 1;
+    export let dayOfTheWeek = 'MON';
+    export let day = '1';
 </script>
 
 <svelte:head>
@@ -9,8 +10,8 @@
 </svelte:head>
 
 <div class="icon-container">
-    <p class="icon-day-week" class:saturday={dayOfTheWeek == 5} class:sunday={dayOfTheWeek === 6}>SAT</p>
-    <p class="icon-day" class:saturday={dayOfTheWeek == 5} class:sunday={dayOfTheWeek === 6}>{dayOfTheWeek}</p>
+    <p class="icon-day-week">{dayOfTheWeek}</p>
+    <p class="icon-day">{day}</p>
     <div class="weather-icon">
     </div>
 </div>

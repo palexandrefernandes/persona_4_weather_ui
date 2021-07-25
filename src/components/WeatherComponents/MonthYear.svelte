@@ -1,9 +1,10 @@
 <script>
-
+    export let year = 2021;
+    export let month = 7;
 </script>
 <div>
-    <p class="month">4</p>
-    <p class="year">2012</p>
+    <p class="month">{month}</p>
+    <p class="year">{year}</p>
 </div>
 
 <style>
