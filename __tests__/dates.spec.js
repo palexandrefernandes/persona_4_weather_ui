@@ -35,7 +35,7 @@ test('if dates are well positioned', () => {
 });
 
 
-test('if dates are well positioned', () => {
+test('if week day for 25/07/2021 is SUN', () => {
     MockDate.set(1627246258431);
     const date = new Date();
     const convertedWeekDay = dates.convertWeekDayToString(date.getDay());
