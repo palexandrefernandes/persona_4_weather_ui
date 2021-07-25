@@ -1,4 +1,4 @@
-name: CD
+name: CI/CD
 on:
   push:
     branches: [ main ]
@@ -11,17 +11,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup files
+        run: npm i
+      - name: Run tests
+        run: npm test
+      - name: Prepare files for deployment
         run: |
-          npm i
           npm run build
           cp -R ./public ../
           rm -rf ./*
           cp -R ../public/* ./
-
-      # Runs a set of commands using the runners shell
       - name: Push to pages repo
         run: |
-          git config --global user.name 'Hydreath'
+          git config --global user.name 'Automation'
           git config --global user.email 'palf1997@gmail.com'
           git stash
           git checkout -b pages
