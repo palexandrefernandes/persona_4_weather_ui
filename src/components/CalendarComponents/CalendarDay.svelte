@@ -50,8 +50,14 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        height: 100%;
         overflow: hidden;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        width: calc(80vw/7);
+        min-width: calc(80vw/7);
+        background: transparent;
+        padding-top: 10vh;
     }
 
     .icon-container > p {

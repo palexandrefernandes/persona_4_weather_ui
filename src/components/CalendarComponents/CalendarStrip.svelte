@@ -1,51 +1,25 @@
 <script>
-    import { onMount, onDestroy } from 'svelte';
-    import { fade } from 'svelte/transition';
-    import CalendarDay from './CalendarDay.svelte';
-    import CalendarMonthYear from './CalendarMonthYear.svelte';
-    export let selected = false;
-    export let date = new Date();
-
-    let interval;
-
-    const verifyDayPassage = () => {
-
-    };
-
-    onMount(() => {
-        interval = setInterval(verifyDayPassage, 1000);
-    });
-
-    onDestroy(() => {
-        clearInterval(interval);
-    });
+    import CalendarMonthYear from "./CalendarMonthYear.svelte";
+    export let month;
+    export let year;
 </script>
 
-<div class="weather-strip" out:fade>
-    <CalendarDay
-        day={date.getDate()}
-        dayOfTheWeek={date.getDay()}
-    />
-    {#if selected}
-        <CalendarMonthYear
-            month={date.getMonth() + 1}
-            year={date.getFullYear()}
-        />
-    {/if}
+<div id="strip">
+    <CalendarMonthYear month={month} year={year} />
 </div>
 
 <style>
-    .weather-strip {
-        z-index: 1;
+    #strip {
+        position: absolute;
+        overflow: hidden;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        flex-direction: column-reverse;
+        z-index: 0;
+        left: calc(80vw / 7 + 10vw);
         height: 100%;
-        width: calc(100%/7);
-        min-width: calc(100%/7);
-        background: transparent;
+        width: calc(80vw/7);
         padding-top: 10vh;
         box-sizing: border-box;
-        overflow: hidden;
+        background: linear-gradient(180deg, rgba(253, 242, 0, 1) 0%, rgba(255, 192, 0, 1) 60%, rgba(255, 192, 0, 1) 100%);
     }
 </style>

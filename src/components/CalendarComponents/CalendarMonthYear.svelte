@@ -13,6 +13,7 @@
         flex-direction: column;
         align-items: center;
         margin-bottom: 2.5vh;
+        position: relative;
     }
 
     p {
@@ -22,9 +23,9 @@
     }
 
     .month {
-        font-size: calc(70vw/7*2);
-        translate: -1vw 4vw;
-        transform: rotate(15deg);
+        font-size: calc(70vw/7*2.1);
+        translate: 0vw 5vw;
+        transform: rotate(20deg);
         font-weight: 600;
         font-style: italic;
     }
