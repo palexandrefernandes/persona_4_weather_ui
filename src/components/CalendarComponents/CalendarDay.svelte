@@ -4,8 +4,6 @@
     export let day = '1';
     export let selected = false;
 
-    $: if (selected) console.log(getDayClass());
-
     const getDayClass = (selected) => {
         switch (dayOfTheWeek) {
             case 6:

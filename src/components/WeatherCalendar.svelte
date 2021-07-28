@@ -1,16 +1,34 @@
 <script>
+    import { onDestroy } from 'svelte';
     import CalendarDay from './CalendarComponents/CalendarDay.svelte';
     import { createDateList } from '../utils/dates';
     import CalendarStrip from './CalendarComponents/CalendarStrip.svelte';
+
     const DAYS_BEFORE_TODAY = 1;
     const DAYS_AFTER_TODAY = 6;
-    let selectedItem = 1;
 
+    let selectedItem = 1;
+    let canTransition = true;
     let dates = createDateList(DAYS_BEFORE_TODAY, DAYS_AFTER_TODAY);
 
-    window.addEventListener('keydown', () => {
-        selectedItem += 1;
-        dates = [...dates, new Date(dates[dates.length - 1].getTime() + 3600 * 24 * 1000)];
+    const hanleEventTransition = event => {
+        if (canTransition) {
+            const transitionAmount = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' && selectedItem > 1 ? -1 : 0;
+            // Do nothing if we are trying to transition to yesterday.
+            if (transitionAmount === 0)
+                return;
+            
+            selectedItem += transitionAmount;
+            dates = [...dates, new Date(dates[dates.length - 1].getTime() + 3600 * 24 * 1000)];
+            canTransition = false;
+            setTimeout(() => { canTransition = true; }, 600);
+        }
+    };
+
+    window.addEventListener('keyup', hanleEventTransition);
+
+    onDestroy(() => {
+        window.removeEventListener('keyup', hanleEventTransition);
     });
 </script>
 

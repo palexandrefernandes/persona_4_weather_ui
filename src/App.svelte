@@ -4,6 +4,7 @@
 </script>
 
 <div id="container">
+	<Spotlight />
 	<WeatherCalendar />
 </div>
 
