@@ -25,9 +25,21 @@ const createDateList = (beforeToday, afterToday) => {
 const generateListOfDates = (startPoint, count, temporalUnit) => {
     const normalizedUnit = Math.sign(temporalUnit);
     return Array(count).fill(undefined).map((_, index) => {
-        return new Date(startPoint.getTime() + (3600 * 24 * 1000 * normalizedUnit * (index + 1)));
+        const timeToAdd = (3600 * 24 * 1000 * normalizedUnit * (index + 1));
+        return new Date(startPoint.getTime() + timeToAdd);
     });
-}
+};
+
+/**
+ * Creates a new date days after the provided date.
+ * @param {Date} date The base date to add days.
+ * @param {number} addDays Number of days to add.
+ * @returns {Date} A date "daysAfter" the provided date.
+ */
+const skipDaysFromDate = (date, addDays) => {
+    const normalizedAddDays = Math.floor(addDays);
+    return new Date(date.getTime() + 3600 * 24 * 1000 * normalizedAddDays);
+};
 
 const WEEK_DAY_TABLE = {
     0: 'SUN',
@@ -48,5 +60,6 @@ const convertWeekDayToString = weekDay => WEEK_DAY_TABLE[weekDay];
 
 module.exports = {
     createDateList,
-    convertWeekDayToString
+    convertWeekDayToString,
+    skipDaysFromDate
 };

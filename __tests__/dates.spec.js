@@ -42,3 +42,22 @@ test('if week day for 25/07/2021 is SUN', () => {
     expect(convertedWeekDay).toBe('SUN');
     MockDate.reset();
 });
+
+test('added date day greater than the original', () => {
+    const date = new Date();
+    const addedDate = dates.skipDaysFromDate(date, 1);
+    expect(addedDate.getTime()).toBeGreaterThan(date.getTime());
+});
+
+test('added date day lesser than the original', () => {
+    const date = new Date();
+    const addedDate = dates.skipDaysFromDate(date, -2);
+    expect(addedDate.getTime()).toBeLessThan(date.getTime());
+});
+
+test('randomized day skip to be correct', () => {
+    const date = new Date();
+    const randSkip = Math.ceil(Math.random() * 10);
+    const skippedDate = dates.skipDaysFromDate(date, randSkip);
+    expect(date.getTime()).toBeLessThan(skippedDate.getTime());
+});

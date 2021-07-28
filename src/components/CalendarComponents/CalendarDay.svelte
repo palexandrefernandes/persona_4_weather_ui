@@ -23,7 +23,9 @@
 </svelte:head>
 
 <div class="container">
-    <p class={getDayClass(selected) + " day-week"}>{convertWeekDayToString(dayOfTheWeek)}</p>
+    <p class={getDayClass(selected) + " day-week"}>
+        {convertWeekDayToString(dayOfTheWeek)}
+    </p>
     <p class={getDayClass(selected) + " day"}>{day}</p>
     <div class="weather-icon">
     </div>
@@ -54,8 +56,8 @@
         z-index: 1;
         display: flex;
         flex-direction: column;
-        width: calc(80vw/7);
-        min-width: calc(80vw/7);
+        width: var(--strip-size);
+        min-width: var(--strip-size);
         background: transparent;
         padding-top: 10vh;
     }
