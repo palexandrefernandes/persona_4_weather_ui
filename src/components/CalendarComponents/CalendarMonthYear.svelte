@@ -24,7 +24,7 @@
 
     .month {
         font-size: calc(70vw/7*2.1);
-        translate: 0vw 5vw;
+        translate: -1.5vw 4vw;
         transform: rotate(20deg);
         font-weight: 600;
         font-style: italic;
