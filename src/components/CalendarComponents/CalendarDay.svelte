@@ -4,7 +4,9 @@
     export let day = '1';
     export let selected = false;
 
-    const getDayClass = () => {
+    $: if (selected) console.log(getDayClass());
+
+    const getDayClass = (selected) => {
         switch (dayOfTheWeek) {
             case 6:
                 return !selected ? 'saturday' : 'saturday-selected';
@@ -22,9 +24,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Federo&display=swap" rel="stylesheet"> 
 </svelte:head>
 
-<div class="icon-container">
-    <p class={getDayClass() + " icon-day-week"}>{convertWeekDayToString(dayOfTheWeek)}</p>
-    <p class={getDayClass() + " icon-day"}>{day}</p>
+<div class="container">
+    <p class={getDayClass(selected) + " day-week"}>{convertWeekDayToString(dayOfTheWeek)}</p>
+    <p class={getDayClass(selected) + " day"}>{day}</p>
     <div class="weather-icon">
     </div>
 </div>
@@ -46,7 +48,7 @@
         color: #064FC0 !important;
     }
 
-    .icon-container {
+    .container {
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -60,21 +62,21 @@
         padding-top: 10vh;
     }
 
-    .icon-container > p {
+    .container > p {
         margin: 0;
         color: rgb(45, 45, 45, 0.95);
         width: 100%;
         text-align: center;
     }
 
-    .icon-day-week {
+    .day-week {
         height: 20px;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-size: 1.5vw;
         font-weight: 500;
     }
 
-    .icon-day {
+    .day {
         font-family: 'Federo', sans-serif;
         letter-spacing: 1rem;
         height: 4.2vw;

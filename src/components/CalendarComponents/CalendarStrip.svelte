@@ -16,7 +16,7 @@
         flex-direction: column-reverse;
         z-index: 0;
         left: calc(80vw / 7 + 10vw);
-        height: 100%;
+        height: 100vh;
         width: calc(80vw/7);
         padding-top: 10vh;
         box-sizing: border-box;
