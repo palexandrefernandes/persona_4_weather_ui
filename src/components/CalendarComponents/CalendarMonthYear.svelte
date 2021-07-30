@@ -47,7 +47,7 @@
 
     .month-container {
         font-size: calc(var(--strip-size) * 1.6);
-        transform: translate(0.3vh, 4vw);
+        transform: translate(0.5vh, 4vw);
     }
 
     .month-two-digit-container {
