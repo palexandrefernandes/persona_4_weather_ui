@@ -16,8 +16,11 @@
 </script>
 <div>
     {#if isMonthVisible}
-        <div in:fly="{{delay: 250, duration: 1000, x: 200}}">
-            <p class="month" class:two-digit={month > 9}>{month}</p>
+        <div 
+            in:fly="{{delay: 250, duration: 1000, x: 200}}"
+            class="{month < 10 ? "month-container" : "month-two-digit-container"}"
+        >
+            <p class="month">{month}</p>
         </div>
     {/if}
     <p class="year">{year}</p>
@@ -32,8 +35,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-items: center;
         margin-bottom: 2.5vh;
-        position: relative;
     }
 
     p {
@@ -42,16 +45,19 @@
         font-weight: 600;
     }
 
-    .month {
-        font-size: calc(var(--strip-size) * 1.5);
-        translate: -1.5vh 4vw;
-        transform: rotate(20deg);
-        font-weight: 600;
-        font-style: italic;
+    .month-container {
+        font-size: calc(var(--strip-size) * 1.6);
+        transform: translate(0.3vh, 4vw);
     }
 
-    .two-digit {
-        translate: -1.5vh 3vw !important;
+    .month-two-digit-container {
+        font-size: calc(var(--strip-size) * 1.4);
+        transform: translate(0vh, 2vw);
+    }
+
+    .month {
+        transform: rotate(30deg);
+        font-weight: 600;
     }
 
     .year {
