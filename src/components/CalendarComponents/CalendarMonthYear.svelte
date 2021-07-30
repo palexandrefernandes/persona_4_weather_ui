@@ -1,9 +1,25 @@
 <script>
+    import { fly } from 'svelte/transition';
+    import { onMount, afterUpdate } from 'svelte';
     export let year = 2021;
     export let month = 7;
+    let isMonthVisible = false;
+
+    $: isMonthVisible = month && false;
+
+    const showMonth = () => {
+        isMonthVisible = true;
+    };
+
+    afterUpdate(showMonth);
+    onMount(showMonth);
 </script>
 <div>
-    <p class="month">{month}</p>
+    {#if isMonthVisible}
+        <div in:fly="{{delay: 250, duration: 1000, x: 200}}">
+            <p class="month" class:two-digit={month > 9}>{month}</p>
+        </div>
+    {/if}
     <p class="year">{year}</p>
 </div>
 
@@ -27,11 +43,15 @@
     }
 
     .month {
-        font-size: calc(var(--strip-size) * 2);
-        translate: 0 5vw;
+        font-size: calc(var(--strip-size) * 1.5);
+        translate: -1.5vh 4vw;
         transform: rotate(20deg);
         font-weight: 600;
         font-style: italic;
+    }
+
+    .two-digit {
+        translate: -1.5vh 3vw !important;
     }
 
     .year {

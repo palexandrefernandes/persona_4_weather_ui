@@ -30,7 +30,7 @@
             addDayToDateListTail();
             selectedIndex += transitionAmount;
             canTransition = false;
-            setTimeout(() => { canTransition = true; }, 600);
+            setTimeout(() => { canTransition = true; }, 350);
         }
     };
 
@@ -84,7 +84,7 @@
         z-index: 1;
         display: flex;
         flex-direction: row;
-        transition: translate .5s linear;
+        transition: translate .3s linear;
         translate: calc(-1 * var(--strip-size) * (var(--selectedItem) - 1)) 0;
     }
 </style>
