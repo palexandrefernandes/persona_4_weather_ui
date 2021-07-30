@@ -29,8 +29,8 @@
             
             addDayToDateListTail();
             selectedIndex += transitionAmount;
-            //canTransition = false;
-            //setTimeout(() => { canTransition = true; }, 350);
+            canTransition = false;
+            setTimeout(() => { canTransition = true; }, 350);
         }
     };
 
