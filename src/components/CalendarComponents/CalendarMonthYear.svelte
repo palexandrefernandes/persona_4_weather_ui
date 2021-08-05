@@ -46,13 +46,13 @@
     }
 
     .month-container {
-        font-size: calc(var(--strip-size) * 1.6);
-        transform: translate(0.5vh, 4vw);
+        font-size: calc(var(--strip-size) * 2);
+        transform: translate(1.2vh, 7vw);
     }
 
     .month-two-digit-container {
-        font-size: calc(var(--strip-size) * 1.4);
-        transform: translate(0vh, 2vw);
+        font-size: calc(var(--strip-size) * 2);
+        transform: translate(1.2vh, 5vw);
     }
 
     .month {
